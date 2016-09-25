@@ -5,15 +5,17 @@
 <script src ="./hand/hand.js"></script>
 <script src ="./cannon/src/cannon.js"></script>
 
+<script src ="./netCode.js"></script>
+
+
 <head>
 	<title>Virtuoso Browser Client - Pre-Alpha 0.0.1</title>
 </head>
 
-
-
 <canvas id="renderCanvas"></canvas>
-<body>
+<body onload = startRepeatingGet()>
 	<script>
+		
 		var canvas = document.getElementById("renderCanvas");
 		var engine = new BABYLON.Engine(canvas, true);
 		
