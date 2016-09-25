@@ -15,10 +15,13 @@
 </head>
 
 <canvas id="renderCanvas"></canvas>
+click and drag to look, arrow keys to move
 <body>
+
 	<script>
 		users = new HashMap();
-		var sphere;
+		var nameTags = new HashMap();
+		
 		startRepeatingGet(users);
 		var canvas = document.getElementById("renderCanvas");
 		var engine = new BABYLON.Engine(canvas, true);
@@ -27,9 +30,9 @@
 		{
 			var scene = new BABYLON.Scene(engine);
 			
-			scene.clearColor = new BABYLON.Color3(0, 1, 0);
+			scene.clearColor = new BABYLON.Color3(1, 1, 1);
 			
-			var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+			var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 100, -200), scene);
 			
 			camera.setTarget(BABYLON.Vector3.Zero());
 			
@@ -38,9 +41,6 @@
 			var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
 			
 			light.intensity = 0.5;
-			
-			sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
-			sphere.position.y = 1;
 			
 			//var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 			
@@ -53,17 +53,48 @@
 		{
 			scene.render();
 			
-			var contin = users.get("continuumspooky");
-			//var gg = contin.toString();
+			var userList = users.keys();
 			
-			var gg = String(contin);
-			gg = gg.split(",");
-			newPos = [parseFloat(gg[0]), parseFloat(gg[1]), parseFloat(gg[2])];
+			for(var i = 0; i < userList.length; i++)
+			{
+				//console.log(userList.length)
+				var curUser = users.get(userList[i]);
+				
+				if(!nameTags.has(userList[i]))
+				{
+					var texy = new BABYLON.DynamicTexture(userList[i] + "nameTag", 512, scene, true);
+					nameTags.set(userList[i], texy);
+					var outTex = nameTags.get(nameList[i]);
+					var context2D = outTex.getContext();
+					context2D.clearRect(0, 200, 512, 512);
+					outTex.drawText(nameList[i], null, 380, "140px verdana", "white", null);
+				}
+				
+				var args = String(curUser);
+				args = args.split(",");
+				//console.log(userList);
+				var pos = [parseFloat(args[0]), parseFloat(args[1]), parseFloat(args[2])];
+				
+				var newSphere = BABYLON.Mesh.CreateSphere(Math.random().toString(), 1, 6, scene);
+				newSphere.position = new BABYLON.Vector3(pos[0], pos[1], pos[2]);
+			//	newSphere.color = new BABYLON.Color3(1.0, 0, 0);
+				//console.log(pos);
+			}
 			
-			//console.log(gg);
-			
-			sphere.position = new BABYLON.Vector3(newPos[0], newPos[1], newPos[2]);
-			console.log(sphere.position);
+			var nameList = nameTags.keys();			
+			for(var i = 0; i < nameList.length; i++)
+			{
+				//console.log(nameTags.get(nameList[i]));
+
+	
+				var possyPoss = users.get(nameList[i]);
+				outTex.position = new BABYLON.Vector3(possyPoss[0], possyPoss[1] + 10, possyPoss[2]);
+				console.log("START");
+				console.log(possyPoss);
+				console.log(outTex.position);
+				console.log("END\n\n\n");
+			}
+		
 		});
 		
 		window.addEventListener("resize", function()
