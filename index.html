@@ -64,10 +64,10 @@ click and drag to look, arrow keys to move
 				{
 					var texy = new BABYLON.DynamicTexture(userList[i] + "nameTag", 512, scene, true);
 					nameTags.set(userList[i], texy);
-					var outTex = nameTags.get(nameList[i]);
+					var outTex = nameTags.get(userList[i]);
 					var context2D = outTex.getContext();
 					context2D.clearRect(0, 200, 512, 512);
-					outTex.drawText(nameList[i], null, 380, "140px verdana", "white", null);
+					outTex.drawText(userList[i], null, 380, "140px verdana", "white", null);
 				}
 				
 				var args = String(curUser);
@@ -87,7 +87,9 @@ click and drag to look, arrow keys to move
 				//console.log(nameTags.get(nameList[i]));
 
 	
-				var possyPoss = users.get(nameList[i]);
+				var possyPoss = users.get(userList[i]);
+				
+				var outTex = nameTags.get(nameList[i]);
 				outTex.position = new BABYLON.Vector3(possyPoss[0], possyPoss[1] + 10, possyPoss[2]);
 				console.log("START");
 				console.log(possyPoss);
