@@ -1,0 +1,105 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "babylonjs",
+        "scope": null,
+        "escapedName": "babylonjs",
+        "name": "babylonjs",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\Continuum"
+    ]
+  ],
+  "_from": "babylonjs@latest",
+  "_id": "babylonjs@2.4.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/babylonjs",
+  "_nodeVersion": "4.4.3",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/babylonjs-2.4.1.tgz_1473369980243_0.9347638627514243"
+  },
+  "_npmUser": {
+    "name": "babylonjs",
+    "email": "contact@babylonjs.com"
+  },
+  "_npmVersion": "2.15.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "babylonjs",
+    "scope": null,
+    "escapedName": "babylonjs",
+    "name": "babylonjs",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/babylonjs/-/babylonjs-2.4.1.tgz",
+  "_shasum": "194f859af51946a0616c82fa454a93c2693efe0d",
+  "_shrinkwrap": null,
+  "_spec": "babylonjs",
+  "_where": "C:\\Users\\Continuum",
+  "author": {
+    "name": "David CATUHE"
+  },
+  "bugs": {
+    "url": "https://github.com/BabylonJS/Babylon.js/issues"
+  },
+  "contributors": [
+    {
+      "name": "David ROUSSET"
+    }
+  ],
+  "dependencies": {},
+  "description": "Babylon.js is a JavaScript 3D engine based on webgl.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "194f859af51946a0616c82fa454a93c2693efe0d",
+    "tarball": "https://registry.npmjs.org/babylonjs/-/babylonjs-2.4.1.tgz"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "files": [
+    "babylon.d.ts",
+    "babylon.js",
+    "babylon.max.js",
+    "babylon.noworker.js",
+    "babylon.core.js",
+    "Oimo.js",
+    "package.json"
+  ],
+  "homepage": "https://github.com/BabylonJS/Babylon.js#readme",
+  "keywords": [
+    "3D",
+    "javascript",
+    "html5",
+    "webgl"
+  ],
+  "license": "Apache-2.0",
+  "main": "babylon.js",
+  "maintainers": [
+    {
+      "name": "babylonjs",
+      "email": "contact@babylonjs.com"
+    }
+  ],
+  "name": "babylonjs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BabylonJS/Babylon.js.git"
+  },
+  "scripts": {},
+  "typings": "babylon.d.ts",
+  "version": "2.4.1"
+}
