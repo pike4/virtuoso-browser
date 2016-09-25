@@ -7,15 +7,19 @@
 
 <script src ="./netCode.js"></script>
 
+<script src ="./hashmap/hashmap.js"></script>
+
 
 <head>
 	<title>Virtuoso Browser Client - Pre-Alpha 0.0.1</title>
 </head>
 
 <canvas id="renderCanvas"></canvas>
-<body onload = startRepeatingGet()>
+<body>
 	<script>
-		
+		users = new HashMap();
+		var sphere;
+		startRepeatingGet(users);
 		var canvas = document.getElementById("renderCanvas");
 		var engine = new BABYLON.Engine(canvas, true);
 		
@@ -35,10 +39,10 @@
 			
 			light.intensity = 0.5;
 			
-			var sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
+			sphere = BABYLON.Mesh.CreateSphere("sphere1", 16, 2, scene);
 			sphere.position.y = 1;
 			
-			var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
+			//var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 			
 			return scene;
 		}
@@ -48,6 +52,18 @@
 		engine.runRenderLoop(function()
 		{
 			scene.render();
+			
+			var contin = users.get("continuumspooky");
+			//var gg = contin.toString();
+			
+			var gg = String(contin);
+			gg = gg.split(",");
+			newPos = [parseFloat(gg[0]), parseFloat(gg[1]), parseFloat(gg[2])];
+			
+			//console.log(gg);
+			
+			sphere.position = new BABYLON.Vector3(newPos[0], newPos[1], newPos[2]);
+			console.log(sphere.position);
 		});
 		
 		window.addEventListener("resize", function()
