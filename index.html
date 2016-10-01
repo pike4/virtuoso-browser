@@ -20,6 +20,9 @@ click and drag to look, arrow keys to move
 
 	<script>
 		users = new HashMap();
+		
+		var gren = new BABYLON.Color3(1, 0, 0);
+		
 		var nameTags = new HashMap();
 		
 		startRepeatingGet(users);
@@ -38,9 +41,9 @@ click and drag to look, arrow keys to move
 			
 			camera.attachControl(canvas, false);
 			
-			var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
+			//var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
 			
-			light.intensity = 0.5;
+			//light.intensity = 0.5;
 			
 			//var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
 			
@@ -48,6 +51,16 @@ click and drag to look, arrow keys to move
 		}
 		
 		var scene = createScene();
+
+		var newMat = new BABYLON.StandardMaterial("testMaterial", scene);
+
+		newMat.emissiveColor = gren;
+		newMat.diffuseColor = gren
+		newMat.ambientColor = gren;
+		newMat.specularColor = gren;
+		
+		//var newSphere = BABYLON.Mesh.CreateSphere(Math.random().toString(), 1, 6, scene);
+		//newSphere.material = newMat;
 		
 		engine.runRenderLoop(function()
 		{
@@ -72,13 +85,18 @@ click and drag to look, arrow keys to move
 				
 				var args = String(curUser);
 				args = args.split(",");
-				//console.log(userList);
+				console.log(userList);
 				var pos = [parseFloat(args[0]), parseFloat(args[1]), parseFloat(args[2])];
 				
 				var newSphere = BABYLON.Mesh.CreateSphere(Math.random().toString(), 1, 6, scene);
 				newSphere.position = new BABYLON.Vector3(pos[0], pos[1], pos[2]);
+				newSphere.emissiveColor = gren;
+				newSphere.diffuseColor = gren
+				newSphere.ambientColor = gren;
+				newSphere.specularColor = gren;
+				
 			//	newSphere.color = new BABYLON.Color3(1.0, 0, 0);
-				//console.log(pos);
+				console.log(pos);
 			}
 			
 			var nameList = nameTags.keys();			

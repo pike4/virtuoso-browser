@@ -18,17 +18,15 @@ function sendHttpGetRequest (url, outString, callback)
 function sendDownloadRequest()
 {
 	
-	return sendHttpGetRequest("http://38.110.21.194:8081/DOWNLOAD", "", function(responseText){
-		//console.log(responseText);
+	return sendHttpGetRequest("http://10.186.74.34:8081/DOWNLOAD", "", function(responseText){
+		console.log(responseText);
 		
 		var DL_Data = responseText.toString().split(",");
 		
 		for(var i = 0; i < DL_Data.length/4; i++)
 		{
 			var name = DL_Data[4 * i];
-			
 			var dat = [DL_Data[(4*i) + 1], DL_Data[(4*i) + 2], DL_Data[(4*i) + 3]];
-			
 			users.set(name, dat);
 		}
 		//console.log(users);
