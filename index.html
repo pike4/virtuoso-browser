@@ -2,6 +2,7 @@
 
 <head>
 	<link rel="stylesheet" type="text/css" href="./home.css">
+	<script src="./home.js"></script>
 </head>
 
 <html>
@@ -9,7 +10,17 @@
 		<div class="center">
 			<h1 style="font-size: 60px; font-family:arial;">Virtuoso!</h1>
 			
-			<button onclick ="location.href='./view.html';"><b>Connect as Viewer</b></button><br>
+			<button onclick ="showConnectForm()"><b>Connect as Viewer</b></button><br>
+				
+				<div id="connectForm">
+				<b>IP:</b><br>
+				<input type="text" name="IPBox"> </input><br><br>
+				<b>Port:</b><br>
+				<input type="text"> </input><br>
+					
+					<button>Connect</button><button onClick="hideConnectForm()">Cancel</button>
+				</div>
+			
 			<button><b>Download the app</b></button><br>
 			<a href="">Download as .apk</a>
 		</div>
