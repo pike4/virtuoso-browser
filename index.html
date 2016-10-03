@@ -1,126 +1,17 @@
 <!DOCTYPE html>
 
-<link rel = "stylesheet" type = "text/css" href = "main.css"/>
-<script src ="./babylonjs/babylon.js"></script>
-<script src ="./hand/hand.js"></script>
-<script src ="./cannon/src/cannon.js"></script>
-
-<script src ="./netCode.js"></script>
-
-<script src ="./hashmap/hashmap.js"></script>
-
-
 <head>
-	<title>Virtuoso Browser Client - Pre-Alpha 0.0.1</title>
+	<link rel="stylesheet" type="text/css" href="./home.css">
 </head>
 
-<canvas id="renderCanvas"></canvas>
-click and drag to look, arrow keys to move
-<body>
-
-	<script>
-		users = new HashMap();
-		
-		var gren = new BABYLON.Color3(1, 0, 0);
-		
-		var nameTags = new HashMap();
-		
-		startRepeatingGet(users);
-		var canvas = document.getElementById("renderCanvas");
-		var engine = new BABYLON.Engine(canvas, true);
-		
-		var createScene = function()
-		{
-			var scene = new BABYLON.Scene(engine);
+<html>
+	<body>
+		<div class="center">
+			<h1 style="font-size: 60px; font-family:arial;">Virtuoso!</h1>
 			
-			scene.clearColor = new BABYLON.Color3(1, 1, 1);
-			
-			var camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 100, -200), scene);
-			
-			camera.setTarget(BABYLON.Vector3.Zero());
-			
-			camera.attachControl(canvas, false);
-			
-			//var light = new BABYLON.HemisphericLight("light1", new BABYLON.Vector3(0, 1, 0), scene);
-			
-			//light.intensity = 0.5;
-			
-			//var ground = BABYLON.Mesh.CreateGround("ground1", 6, 6, 2, scene);
-			
-			return scene;
-		}
-		
-		var scene = createScene();
-
-		var newMat = new BABYLON.StandardMaterial("testMaterial", scene);
-
-		newMat.emissiveColor = gren;
-		newMat.diffuseColor = gren
-		newMat.ambientColor = gren;
-		newMat.specularColor = gren;
-		
-		//var newSphere = BABYLON.Mesh.CreateSphere(Math.random().toString(), 1, 6, scene);
-		//newSphere.material = newMat;
-		
-		engine.runRenderLoop(function()
-		{
-			scene.render();
-			
-			var userList = users.keys();
-			
-			for(var i = 0; i < userList.length; i++)
-			{
-				//console.log(userList.length)
-				var curUser = users.get(userList[i]);
-				
-				if(!nameTags.has(userList[i]))
-				{
-					var texy = new BABYLON.DynamicTexture(userList[i] + "nameTag", 512, scene, true);
-					nameTags.set(userList[i], texy);
-					var outTex = nameTags.get(userList[i]);
-					var context2D = outTex.getContext();
-					context2D.clearRect(0, 200, 512, 512);
-					outTex.drawText(userList[i], null, 380, "140px verdana", "white", null);
-				}
-				
-				var args = String(curUser);
-				args = args.split(",");
-				console.log(userList);
-				var pos = [parseFloat(args[0]), parseFloat(args[1]), parseFloat(args[2])];
-				
-				var newSphere = BABYLON.Mesh.CreateSphere(Math.random().toString(), 1, 6, scene);
-				newSphere.position = new BABYLON.Vector3(pos[0], pos[1], pos[2]);
-				newSphere.emissiveColor = gren;
-				newSphere.diffuseColor = gren
-				newSphere.ambientColor = gren;
-				newSphere.specularColor = gren;
-				
-			//	newSphere.color = new BABYLON.Color3(1.0, 0, 0);
-				console.log(pos);
-			}
-			
-			var nameList = nameTags.keys();			
-			for(var i = 0; i < nameList.length; i++)
-			{
-				//console.log(nameTags.get(nameList[i]));
-
-	
-				var possyPoss = users.get(userList[i]);
-				
-				var outTex = nameTags.get(nameList[i]);
-				outTex.position = new BABYLON.Vector3(possyPoss[0], possyPoss[1] + 10, possyPoss[2]);
-				console.log("START");
-				console.log(possyPoss);
-				console.log(outTex.position);
-				console.log("END\n\n\n");
-			}
-		
-		});
-		
-		window.addEventListener("resize", function()
-		{
-			engine.resize();
-		});
-	</script>
-</body>
+			<button onclick ="location.href='./view.html';"><b>Connect as Viewer</b></button><br>
+			<button><b>Download the app</b></button><br>
+			<a href="">Download as .apk</a>
+		</div>
+	</body>
 </html>

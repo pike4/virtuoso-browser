@@ -1,0 +1,30 @@
+body
+{
+	background-color: #5abc2d;
+}
+
+button
+{
+	background-color: #ffff99;
+	border: none;
+	
+	width: 50%;
+	min-width: 200px;
+	max-width: 600px;
+	
+	height: 10%;
+	min-height: 100px;
+	max-height: 300px;
+	
+	layout: static;
+	margin: auto;
+	
+	margin: 20px;
+
+	font-size: 30px;
+}
+
+.center
+{
+	text-align:	center;
+}
