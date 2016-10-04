@@ -18,7 +18,7 @@ function sendHttpGetRequest (url, outString, callback)
 function sendDownloadRequest()
 {
 	
-	return sendHttpGetRequest("http://10.186.74.34:8081/DOWNLOAD", "", function(responseText){
+	return sendHttpGetRequest("http://192.168.1.75:8081/DOWNLOAD", "", function(responseText){
 		console.log(responseText);
 		
 		var DL_Data = responseText.toString().split(",");
@@ -35,6 +35,5 @@ function sendDownloadRequest()
 
 function startRepeatingGet()
 {
-	
 	var continuousRequest = setInterval(sendDownloadRequest, 100);
 };

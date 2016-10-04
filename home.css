@@ -1,6 +1,8 @@
 body
 {
 	background-color: #5abc2d;
+	
+	font-family: arial;
 }
 
 button
@@ -34,7 +36,7 @@ button
 #connectForm
 {	
 	display: block;
-	height: 0;
+	height: 0px;
 	overflow: hidden;
 	
 	text-align: left;
