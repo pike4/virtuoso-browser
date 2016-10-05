@@ -49,6 +49,8 @@ button
 	min-width: 200px;
 	
 	margin: auto;
+	
+	line-height: 1;
 }
 
 #connectForm button
