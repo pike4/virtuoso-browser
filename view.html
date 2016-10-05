@@ -16,16 +16,16 @@
 
 <canvas id="renderCanvas"></canvas>
 click and drag to look, arrow keys to move
-<body>
+<body onLoad="getArgsFromURL()">
 
 	<script>
+		
 		users = new HashMap();
 		
 		var gren = new BABYLON.Color3(1, 0, 0);
 		
 		var nameTags = new HashMap();
 		
-		startRepeatingGet(users);
 		var canvas = document.getElementById("renderCanvas");
 		var engine = new BABYLON.Engine(canvas, true);
 		
